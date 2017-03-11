@@ -81,6 +81,19 @@ server.post('/animals', function(req, res){
 });
 // PUT /animals/:id
 // DELETE /animals:id
+server.delete('/animals/:id', function(req, res){
+  Animal.remove({_id: req.params.id}, function(err, doc){
+    if(err){
+      res.status(500).json({
+        msg: err
+      });
+    } else {
+      res.status(200).json({
+        msg: 'Successfully deleted'
+      });
+    }
+  });
+});
 
 server.listen(port, function(){
   console.log('Now listening on port...', port);
