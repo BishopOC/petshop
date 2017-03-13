@@ -1,6 +1,6 @@
 var express = require('express');
 var animalRouter = express.Router();
-var Animal = require('../models/animal.model')
+var Animal = require('../models/animal.model');
 
 // GET /animals
 animalRouter.get('/animals', function(req, res){
